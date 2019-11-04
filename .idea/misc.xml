@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EmacsSettings">
+    <option name="emacsPath" value="/usr/bin/emacs" />
+  </component>
+  <component name="HaskellBuildOptions">
+    <ghcPath>/usr/local/bin/ghc</ghcPath>
+    <cabalPath>/usr/local/bin/cabal</cabalPath>
+    <stackPath>/usr/local/bin/stack</stackPath>
+  </component>
+  <component name="RebarSettings">
+    <rebarPath>$USER_HOME$/Library/Application\ Support/IdeaIC2018.2/intellij-erlang/classes/org/intellij/erlang/rebar/</rebarPath>
+  </component>
+</project>
