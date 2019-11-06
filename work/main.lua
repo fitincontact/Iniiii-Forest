@@ -1,29 +1,35 @@
---[[function love.draw()
-    love.graphics.print("Hello World", 40, 30)
-	--love.graphics.circle("fill", 10, 10, 100, 25)
-	--love.graphics.rectangle("line", 1, 1, 318, 238)
-end
-]]
-
 function love.load()
-    x = 100
+	-- Remember: camelCasing!
+	listOfRectangles = {}
+end
+
+function createRect()
+	rect = {}
+	rect.x = 100
+	rect.y = 100
+	rect.width = 70
+	rect.height = 90
+	rect.speed = 100
+
+	-- Put the new rectangle in the list
+	table.insert(listOfRectangles, rect)
+end
+
+function love.keypressed(key)
+	-- Remember, 2 equal signs (==) for comparing!
+	if key == "space" then
+		createRect()
+	end
 end
 
 function love.update(dt)
-    print(dt)
-    if love.keyboard.isDown("right") then
-        x = x + 100 * dt
-
-    else
-        x = x - 100 * dt --We decrease the value of x
-    end
+	for i,v in ipairs(listOfRectangles) do
+		v.x = v.x + v.speed * dt
+	end
 end
 
-function love.draw()
-    love.graphics.rectangle("line", x, 50, 200, 150)
-    love.graphics.rectangle("line", 1, 1, 300, 300)
-    if love.keyboard.isDown("right") then
-        love.graphics.print("right", 40, 30)
-    end
+function love.draw(dt)
+	for i,v in ipairs(listOfRectangles) do
+		love.graphics.rectangle("line", v.x, v.y, v.width, v.height)
+	end
 end
-	
