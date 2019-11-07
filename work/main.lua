@@ -1,21 +1,21 @@
 function love.load()
-	tick = require "tick"
-
-	--Create a boolean
-	drawRectangle = false
-
-	--The first argument is a function
-	--The second argument is the time it takes to call the function
-	tick.recur(function () drawRectangle = true end ,   2)
-end
-
-function love.update(dt)
-	tick.update(dt)
+	x = 30
+	y = 50
+	w = 10
+	h = 20
 end
 
 function love.draw()
-	--if drawRectangle is true then draw a rectangle
-	if drawRectangle then
-		love.graphics.rectangle("fill", 100, 100, 300, 200)
+	love.graphics.rectangle("line", x, y, w, h)
+end
+
+function love.keypressed(key)
+	--If space is pressed then..
+	if key == "space" then
+		--x and y become a random number between 100 and 500
+		x = math.random(100, 500)
+		y = math.random(100, 500)
+		w = math.random(100, 500)
+		h = math.random(100, 500)
 	end
 end
