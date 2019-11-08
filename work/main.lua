@@ -1,10 +1,17 @@
 --! file: main.lua
 function love.load()
     Object = require "library.classic"
-    --Don't forget to load the file
     require "rectangle"
+    r1 = Rectangle(10)
+    r2 = Rectangle(200)
+end
 
-    r1 = Rectangle()
-    r2 = Rectangle()
-    print(r1.test, r2.test)
+function love.update(dt)
+    r1.update(r1, dt)
+    r2.update(r2, dt)
+end
+
+function love.draw()
+    r1.draw(r1)
+    r2.draw(r2)
 end
