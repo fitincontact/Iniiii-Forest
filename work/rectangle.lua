@@ -5,19 +5,19 @@ Rectangle = Object.extend(Object)
 
 --math.randomseed(os.time())
 
-function Rectangle.new(self, y)
-    self.x = 100
+function Rectangle:new(x, y, width, height, speed)
+    self.x = x
     self.y = y
-    self.width = 200
-    self.height = 150
-    self.speed = 100
+    self.width = width
+    self.height = height
+    self.speed = speed
 end
 
-function Rectangle.update(self, dt)
+function Rectangle:update(dt)
     self.x = self.x + self.speed * dt
 end
 
-function Rectangle.draw(self)
+function Rectangle:draw()
     love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
 end
 
