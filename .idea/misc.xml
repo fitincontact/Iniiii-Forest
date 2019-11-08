@@ -8,7 +8,7 @@
     <cabalPath>/usr/local/bin/cabal</cabalPath>
     <stackPath>/usr/local/bin/stack</stackPath>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" project-jdk-name="Lua 5.3.5" project-jdk-type="Lua SDK" />
   <component name="RebarSettings">
     <rebarPath>$USER_HOME$/Library/Application\ Support/IdeaIC2018.2/intellij-erlang/classes/org/intellij/erlang/rebar/</rebarPath>
   </component>
