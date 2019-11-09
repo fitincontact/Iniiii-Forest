@@ -1,0 +1,19 @@
+GIMP Palette
+#Palette Name: Shadow President 
+#Description: This is the palette from the dos game Shadow President by DC true
+#Colors: 15
+0	0	0	#000000
+84	84	84	#545454
+168	168	168	#a8a8a8
+252	252	252	#fcfcfc
+0	0	168	#0000a8
+84	84	168	#5454a8
+0	84	252	#0054fc
+84	252	252	#54fcfc
+168	0	0	#a80000
+168	84	0	#a85400
+252	0	0	#fc0000
+252	252	84	#fcfc54
+0	168	0	#00a800
+0	244	0	#00f400
+168	0	168	#a800a8

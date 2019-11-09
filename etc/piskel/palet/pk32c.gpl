@@ -1,0 +1,36 @@
+GIMP Palette
+#Palette Name: PK32C
+#Description: One of my first palettes, newly updated for use on this site. I once used this to make pixel-art emojis for Twitch.tv, FrankerFaceZ, etc.<p>The high saturation and low amount of dark colors make this best suited for character designs and more experimental art styles.</p><p>In making this I sought a high degree of color contrast. Since this was the prime consideration, there are bound to be a lot of weaknesses in this palette...</p>
+#Colors: 32
+0	0	0	#000000
+111	57	79	#6f394f
+148	75	75	#944b4b
+202	144	103	#ca9067
+246	246	147	#f6f693
+190	220	156	#bedc9c
+128	219	227	#80dbe3
+226	170	203	#e2aacb
+97	39	83	#612753
+123	48	75	#7b304b
+188	73	64	#bc4940
+242	193	103	#f2c167
+123	208	90	#7bd05a
+98	171	238	#62abee
+230	90	141	#e65a8d
+163	163	163	#a3a3a3
+70	27	76	#461b4c
+80	29	64	#501d40
+145	56	83	#913853
+218	126	87	#da7e57
+66	184	80	#42b850
+90	139	223	#5a8bdf
+189	75	91	#bd4b5b
+84	84	84	#545454
+30	22	40	#1e1628
+47	28	53	#2f1c35
+109	43	91	#6d2b5b
+183	55	85	#b73755
+63	140	49	#3f8c31
+80	102	229	#5066e5
+170	59	69	#aa3b45
+255	255	255	#ffffff
