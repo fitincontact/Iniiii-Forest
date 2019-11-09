@@ -1,26 +1,65 @@
 function love.load()
-    myImage = love.graphics.newImage("image/sprite/dynamic/hero_01_00.png")
-    width = myImage:getWidth()
-    height = myImage:getHeight()
-    love.graphics.setBackgroundColor(1, 1, 1)
-end
---[[function love.draw()
+    --Create 2 rectangles
+    r1 = {
+        x = 10,
+        y = 100,
+        width = 100,
+        height = 100
+    }
 
-    love.graphics.draw(myImage, 100, 100)
-    love.graphics.draw(myImage, 100, 100, 10)
-    love.graphics.draw(myImage, 100, 100, 0, 2, 2)
-    love.graphics.draw(myImage, 100, 100, 0, -1, 1)
-    love.graphics.draw(myImage, 100, 100, 0, 2, 2, 39, 50)
-    --love.graphics.draw(myImage, 100, 100, 0, 2, 2, 39, 50, 15, 20)
-    love.graphics.draw(myImage, 100, 100, 0, 2, 2, width/2, height/2)
-end]]
+    r2 = {
+        x = 250,
+        y = 120,
+        width = 150,
+        height = 120
+    }
+end
+
+function love.update(dt)
+    --Make one of rectangle move
+    r1.x = r1.x + 100 * dt
+end
 
 function love.draw()
-    love.graphics.setColor(255/255, 200/255, 40/255, 127/255)
-    love.graphics.setColor(1, 0.78, 0.15, 0.5)
-    -- Or ...
-    love.graphics.draw(myImage, 100, 100)
-    -- Not passing an argument for alpha automatically sets it to 1 again.
-    love.graphics.setColor(1, 1, 1)
-    love.graphics.draw(myImage, 200, 100)
+    --We create a local variable called mode
+    local mode
+    if checkCollision(r1, r2) then
+        --If there is collision, draw the rectangles filled
+        mode = "fill"
+    else
+        --else, draw the rectangles as a line
+        mode = "line"
+    end
+
+    --Use the variable as first argument
+    love.graphics.rectangle(mode, r1.x, r1.y, r1.width, r1.height)
+    love.graphics.rectangle(mode, r2.x, r2.y, r2.width, r2.height)
+end
+
+function checkCollision(a, b)
+    --With locals it's common usage to use underscores instead of camelCasing
+    local a_left = a.x
+    local a_right = a.x + a.width
+    local a_top = a.y
+    local a_bottom = a.y + a.height
+
+    local b_left = b.x
+    local b_right = b.x + b.width
+    local b_top = b.y
+    local b_bottom = b.y + b.height
+
+    --If Red's right side is further to the right than Blue's left side.
+    if a_right > b_left and
+            --and Red's left side is further to the left than Blue's right side.
+            a_left < b_right and
+            --and Red's bottom side is further to the bottom than Blue's top side.
+            a_bottom > b_top and
+            --and Red's top side is further to the top than Blue's bottom side then..
+            a_top < b_bottom then
+        --There is collision!
+        return true
+    else
+        --If one of these statements is false, return false.
+        return false
+    end
 end
