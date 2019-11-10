@@ -1,0 +1,7 @@
+size:
+love.graphics.rectangle("line", 1, 1, 318, 238)
+(format, x, y, w, h)
+
+
+lutro:
+https://github.com/libretro/libretro-lutro

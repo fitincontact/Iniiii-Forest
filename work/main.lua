@@ -1,65 +1,42 @@
 function love.load()
-    --Create 2 rectangles
-    r1 = {
-        x = 10,
-        y = 100,
-        width = 100,
-        height = 100
-    }
+    Object = require "library.classic"
+    require "object.player"
+    require "object.enemy"
+    require "object.bullet"
 
-    r2 = {
-        x = 250,
-        y = 120,
-        width = 150,
-        height = 120
-    }
+    --love.graphics.setMode(window_width, window_height, false, true, 0)
+    love.window.setMode(window_width, window_height, {resizable=true, vsync=false, minwidth=window_width, minheight=window_height})
+
+    player = Player()
+    enemy = Enemy()
+    listOfBullets = {}
 end
 
 function love.update(dt)
-    --Make one of rectangle move
-    r1.x = r1.x + 100 * dt
+    player:update(dt)
+    enemy:update(dt)
+
+    for i,bullet in ipairs(listOfBullets) do
+        bullet:update(dt)
+        bullet:checkCollision(enemy)
+
+        --If the bullet has the property dead and it's true then..
+        if bullet.dead then
+            --Remove it from the list
+            table.remove(listOfBullets, i)
+        end
+    end
 end
 
 function love.draw()
-    --We create a local variable called mode
-    local mode
-    if checkCollision(r1, r2) then
-        --If there is collision, draw the rectangles filled
-        mode = "fill"
-    else
-        --else, draw the rectangles as a line
-        mode = "line"
-    end
+    player:draw()
+    enemy:draw()
 
-    --Use the variable as first argument
-    love.graphics.rectangle(mode, r1.x, r1.y, r1.width, r1.height)
-    love.graphics.rectangle(mode, r2.x, r2.y, r2.width, r2.height)
+    for _, bullet in ipairs(listOfBullets) do
+        bullet:draw()
+    end
 end
 
-function checkCollision(a, b)
-    --With locals it's common usage to use underscores instead of camelCasing
-    local a_left = a.x
-    local a_right = a.x + a.width
-    local a_top = a.y
-    local a_bottom = a.y + a.height
-
-    local b_left = b.x
-    local b_right = b.x + b.width
-    local b_top = b.y
-    local b_bottom = b.y + b.height
-
-    --If Red's right side is further to the right than Blue's left side.
-    if a_right > b_left and
-            --and Red's left side is further to the left than Blue's right side.
-            a_left < b_right and
-            --and Red's bottom side is further to the bottom than Blue's top side.
-            a_bottom > b_top and
-            --and Red's top side is further to the top than Blue's bottom side then..
-            a_top < b_bottom then
-        --There is collision!
-        return true
-    else
-        --If one of these statements is false, return false.
-        return false
-    end
+function love.keypressed(key)
+    player:keyPressed(key)
 end
