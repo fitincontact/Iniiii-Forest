@@ -8,6 +8,7 @@ function Player:new()
     self.y = WINDOW_HEIGHT / 20
     self.speed = 500
     self.width = self.image:getWidth()
+    self.heigh = self.image:getHeight()
     self.right = false
     self.left = false
 end
@@ -20,6 +21,16 @@ end
 function Player:rightMove(dt)
     self.x = self.x + self.speed * dt
     player:xBorder()
+end
+
+function Player:downMove(dt)
+    self.y = self.y + self.speed * dt
+    player:yBorder()
+end
+
+function Player:upMove(dt)
+    self.y = self.y - self.speed * dt
+    player:yBorder()
 end
 
 function Player:xBorder()
@@ -35,25 +46,32 @@ function Player:xBorder()
     end
 end
 
-function Player:update(dt)
-    if love.keyboard.isDown("left") --[[or DPLEFT == true]]
-    --or (joystickand and joystick:isGamepadDown("dpleft"))
-    then
-        self.x = self.x - self.speed * dt
-    elseif love.keyboard.isDown("right") --[[or DPRIGHT == true]] then
-        self.x = self.x + self.speed * dt
-    end
-
+function Player:yBorder()
     --If the left side is too far too the left then..
-    if self.x < 0 then
+    if self.y < 0 then
         --Set x to 0
-        self.x = 0
+        self.y = 0
 
         --Else, if the right side is too far to the right then..
-    elseif self.x + self.width > WINDOW_WIDTH then
+    elseif self.y + self.width > WINDOW_HEIGHT then
         --Set the right side to the window's width.
-        self.x = WINDOW_WIDTH - self.width
+        self.y = WINDOW_HEIGHT - self.width
     end
+end
+
+function Player:update(dt)
+    if love.keyboard.isDown("left")
+    then
+        player:leftMove(dt)
+    elseif love.keyboard.isDown("right") then
+        player:rightMove(dt)
+    elseif love.keyboard.isDown("up") then
+        player:upMove(dt)
+    elseif love.keyboard.isDown("down") then
+        player:downMove(dt)
+    end
+
+    player:xBorder()
 end
 
 function Player:draw()

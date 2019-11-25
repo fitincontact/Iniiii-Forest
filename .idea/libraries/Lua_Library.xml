@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Lua Library" type="Lua">
+  <library name="Lua Library">
     <CLASSES>
       <root url="file://$USER_HOME$/opt/love-IDEA-plugin-master/love_112" />
     </CLASSES>

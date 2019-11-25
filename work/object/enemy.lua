@@ -12,6 +12,7 @@ function Enemy:new()
 end
 
 function Enemy:update(dt)
+
     self.x = self.x + self.speed * dt
 
     if self.x < 0 then
@@ -21,9 +22,9 @@ function Enemy:update(dt)
         self.x = WINDOW_WIDTH - self.width
         self.speed = -self.speed
     end
+
 end
 
 function Enemy:draw()
     love.graphics.draw(self.image, self.x, self.y)
 end
-
