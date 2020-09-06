@@ -1,3 +1,4 @@
+--https://medium.com/@italo.maia/a-löve2d-tutorial-part-04-fonts-input-4bafe7959f2e
 --in main
 local gam_label = "no gamepad event so far"
 local joy_label = "no joystick event so far"

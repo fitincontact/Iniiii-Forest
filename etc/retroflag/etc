@@ -6,27 +6,31 @@ love.graphics.rectangle("line", 1, 1, 318, 238)
 
 gamepad: true
 joystick added: Microsoft Box 360 pad
+
+joystick
+gamepad
+
+joystick - 1
+a
+joystick - 2
+b
+joystick - 3
+x
+joystick - 4
+y
+joystick - 5
+leftshoulder
+joystick - 6
+rightshoulder
+joystick - 7
+back
+joystick - 8
+start
+
 dpup
 dpdown
 dpleft
 dpright
-
-joystic released - 1
-a
-joystic released - 2
-b
-joystic released - 3
-x
-joystic released - 4
-y
-joystic released - 8
-start
-joystic released - 7
-back
-joystic released - 5
-leftshoulder
-joystic released - 6
-rightshoulder
 
 lutro:
 https://github.com/libretro/libretro-lutro
